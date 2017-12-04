@@ -1,12 +1,22 @@
 package ar.edu.um.umbooks.gson2;
 
+import static spark.Spark.after;
+import static spark.Spark.get;
+import static spark.Spark.port;
+import static spark.Spark.staticFiles;
+import static spark.debug.DebugScreen.enableDebugScreen;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import ar.edu.um.umbooks.controller.*;
 import ar.edu.um.umbooks.clasesapi.Items;
 import ar.edu.um.umbooks.clasesapi.JSON;
 import ar.edu.um.umbooks.servicios.SearchServices;
 import ar.edu.um.umbooks.singleton.ApiProperty;
 
-public class App 
-{
+public class App {
+	private static Logger logger = LoggerFactory.getLogger(App.class);
     public static void main( String[] args ) throws Exception  {
     	try {
     		
@@ -34,7 +44,23 @@ public class App
     		 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-		}  	
+		}  
+    	
+    	
+    	// Configure Spark
+        port(4567);
+        staticFiles.location("/public");
+        staticFiles.expireTime(600L);
+        enableDebugScreen();
+        
+        // Set up routes
+        get(Path.Web.INDEX,     indexController.index);
+        get(Path.Web.SEARCH,    searchController.resultadobusqueda);
+        get(Path.Web.IDSEARCH,  idController.detalleslibro);
+       // get("*",                ViewUtil.notFound);
+
+        //Set up after-filters (called after each get/post)
+        //after("*",                   Filters.addGzipHeader);//base de datos y crear clase
        
     }
 }
