@@ -2,32 +2,82 @@ package ar.edu.um.umbooks.clasesapi;
 
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 
+@Entity
+@Table(name="libros")
 public class VolumeInfo {
-	private String title;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // Determina que es autoincrementable
+	private Integer id;//
+	@Column(name="titulo")
+	private String title;//
+	@Transient
 	private String subtitle;
-	private List<String> authors;
+	@ManyToMany
+	//@JoinTable(name="libros_autores", joinColumns		= {@JoinColumn(name="id",referencedColumnName="libros_id")},
+	//								inverseJoinColumns  = {@JoinColumn(name="id",referencedColumnName="autores_id")})
+	private List<String> authors;// Crear la clase autores y cambiar este atributo por clase autores
+	@Transient
 	private String publisher;
-	private String publishedDate;
-	private String description;
+	@Column(name="fechaPublicacion")
+	private String publishedDate;//
+	@Column(name="descripcion")
+	private String description;//
+	@Transient
 	private List<Industria> industryIdentifiers;
+	@Transient
 	private ModoLectura readingModes;
-	private Integer pageCount;
+	@Column(name="numeroPaginas")
+	private Integer pageCount;//
+	@Column(name="paginasImpresas")
 	private Integer printedPageCount; // Faltaba
+	@Transient
 	private String printType;
-	private List<String> categories;
-	private Float averageRating;
+	@ManyToMany
+	//@JoinTable(name="libros_categorias", joinColumns		= {@JoinColumn(name="id",referencedColumnName="libros_id")},
+	//								inverseJoinColumns  = {@JoinColumn(name="id",referencedColumnName="categorias_id")})
+	@JoinColumn(name="categoria")
+	private List<String> categories;//idem autores
+	@Column(name="rating")
+	private Float averageRating;//
+	@Transient
 	private Integer ratingsCount;
+	@Transient
 	private String maturityRating;
+	@Transient
 	private Boolean allowAnonLogging;
+	@Transient
 	private String contentVersion;
+	@Transient
 	private Sumario panelizationSummary;
-	private Imagen imageLinks;
-	private String language;
+	@Column(name="imagen")
+	private Imagen imageLinks;//
+	@Column(name="idioma")
+	private String language;//
+	@Transient
 	private String previewLink;
+	@Transient
 	private String infoLink;
+	@Transient
 	private String canonicalVolumeLink;
 	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	public String getTitle() {
 		return title;
 	}
@@ -37,8 +87,8 @@ public class VolumeInfo {
 	public List<String> getAuthors() {
 		return authors;
 	}
-	public void setAuthors(List<String> authors) {
-		this.authors = authors;
+	public void setAuthors(String authors) {
+		this.authors.add(authors);
 	}
 	public String getPublisher() {
 		return publisher;
