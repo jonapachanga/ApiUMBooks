@@ -22,7 +22,7 @@ public class App
     				.getItems()
     				.get(0)
     				.getVolumeInfo()
-    				.getTitle();
+    				.getAuthors().get(0);
     		String resultId = id.getIDSearch(idBook)
     				.getVolumeInfo()
     				.getTitle();
