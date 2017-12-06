@@ -9,11 +9,11 @@ import spark.Route;
 
 public class searchController {
 	
-	public static Route resultadobusqueda = (Request request, Response response) -> {
+	public static Route search = (Request request, Response response) -> {
     	BooksDB serviceBook = new BooksDB();
     	
         HashMap<String, Object> model = new HashMap<>();
-       // model.put("books", serviceBook.filterByName(request.queryParams("query")));
+        model.put("books", serviceBook.filterByName(request.queryParams("query")));
         return ViewUtil.render(request, model, Path.Template.SEARCH);
     };
 

@@ -55,8 +55,8 @@ public class App {
         
         // Set up routes
         get(Path.Web.INDEX,     indexController.index);
-        get(Path.Web.SEARCH,    searchController.resultadobusqueda);
-        get(Path.Web.IDSEARCH,  idController.detalleslibro);
+        get(Path.Web.SEARCH,    searchController.search);
+        get(Path.Web.IDSEARCH,  idController.idsearch);
        // get("*",                ViewUtil.notFound);
 
         //Set up after-filters (called after each get/post)

@@ -11,7 +11,7 @@ import ar.edu.um.ingenieria.persistencia.jpa.impl.DAOImpl;
 import ar.edu.um.proyecto.mvc.teams.Player;*/
 
 public class BooksDB {
-	/*public class PlayerDAOImpl extends DAOImpl<Player, Integer> {
+	public class PlayerDAOImpl extends DAOImpl<Player, Integer> {
 		public PlayerDAOImpl() {
 			super(Player.class);
 		}
@@ -30,6 +30,6 @@ public class BooksDB {
 				entityManager.close();
 			}
 			
-		}*/
+		}
 
 }

@@ -8,12 +8,12 @@ import spark.Response;
 import spark.Route;
 
 public class idController {
-	public static Route detalleslibro = (Request request, Response response) -> {
+	public static Route idsearch = (Request request, Response response) -> {
     	BooksDB serviceBook = new BooksDB();
     	
         HashMap<String, Object> model = new HashMap<>();
        // model.put("idBook", serviceBook.idByName(request.queryParams("query")));
-        return ViewUtil.render(request, model, Path.Template.SEARCH);
+        return ViewUtil.render(request, model, Path.Template.IDSEARCH);
     };
 
 }
