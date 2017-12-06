@@ -1,5 +1,6 @@
 package ar.edu.um.umbooks.clasesapi;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -7,48 +8,56 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import javassist.SerialVersionUID;
+
 @Entity
 @Table(name="libros")
-public class VolumeInfo {
+public class VolumeInfo implements Serializable{
+	private static final long SerialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // Determina que es autoincrementable
-	private Integer id;//
+	private Integer id;
+	
 	@Column(name="titulo")
-	private String title;//
+	private String title;
+	
 	@Transient
 	private String subtitle;
-	@ManyToMany
-	//@JoinTable(name="libros_autores", joinColumns		= {@JoinColumn(name="id",referencedColumnName="libros_id")},
-	//								inverseJoinColumns  = {@JoinColumn(name="id",referencedColumnName="autores_id")})
-	private List<String> authors;// Crear la clase autores y cambiar este atributo por clase autores
+	
+	@Column(name="autor")
+	private List<String> authors;
+	
 	@Transient
 	private String publisher;
+	
 	@Column(name="fechaPublicacion")
-	private String publishedDate;//
+	private String publishedDate;
+	
 	@Column(name="descripcion")
-	private String description;//
+	private String description;
+	
 	@Transient
 	private List<Industria> industryIdentifiers;
+	
 	@Transient
 	private ModoLectura readingModes;
+	
 	@Column(name="numeroPaginas")
-	private Integer pageCount;//
+	private Integer pageCount;
+	
 	@Column(name="paginasImpresas")
-	private Integer printedPageCount; // Faltaba
+	private Integer printedPageCount; 
+	
 	@Transient
 	private String printType;
-	@ManyToMany
-	//@JoinTable(name="libros_categorias", joinColumns		= {@JoinColumn(name="id",referencedColumnName="libros_id")},
-	//								inverseJoinColumns  = {@JoinColumn(name="id",referencedColumnName="categorias_id")})
-	@JoinColumn(name="categoria")
-	private List<String> categories;//idem autores
+	
+	@Column(name="categoria")
+	private List<String> categories;
 	@Column(name="rating")
-	private Float averageRating;//
+	private Float averageRating;
 	@Transient
 	private Integer ratingsCount;
 	@Transient
