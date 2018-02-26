@@ -48,9 +48,9 @@ public class App {
     		System.out.println(volumeInfo.getTitle());
     		
     		service.create(volumeInfo);
-    		
-    		
-    		System.out.println(key);
+
+
+			System.out.println(key);
     		 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
