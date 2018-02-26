@@ -18,13 +18,16 @@
         
         
           <div class="container-fluid">
-              <div class="row">
+            <div class="row"><!--form-horizontal  -->
+              <form action="/search/" method="GET">
               <div class="col-md-4 col-md-offset-2">
                 <div class="input-group">
-                  <input type="text" class="form-control form-control-lg" aria-label="Text input with radio button" placeholder="Ingrese nombre del libro/autor">
+                  <input name="query" type="text" class="form-control form-control-lg" aria-label="Text input with radio button" placeholder="Ingrese nombre del libro/autor">
                   </div>
                 </div>
                 <div class="col-md-2">
+                <select><option></option></select>
+                <!-- 
                 <div class="dropdown">
                   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Seleccione un Filtro
@@ -37,14 +40,16 @@
                       <a class="dropdown-item" href="#">ebooks</a>
                     </div>
                 </div>
+                 -->
                 </div>
                  <div class="col-md-2 text-left">
                 <div class="dropdown">
-                  <button class="btn btn-secondary" type="button" href="/search/">
+                  <button class="btn btn-secondary">
                     Buscar
                   </button>
                 </div>
                 </div>
+                </form>
               </div>
           </div>
         </div>

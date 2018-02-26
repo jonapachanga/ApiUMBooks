@@ -6,7 +6,7 @@ public class Path {
 	public static class Web {
         @Getter public static final String INDEX = "/";
         @Getter public static final String SEARCH = "/search/";
-        @Getter public static final String IDSEARCH = "/idsearch/";
+        @Getter public static final String IDSEARCH = "/idsearch/:id/";
         
 	}
 	

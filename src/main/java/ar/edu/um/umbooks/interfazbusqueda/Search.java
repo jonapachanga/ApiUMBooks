@@ -15,4 +15,3 @@ public interface Search<T> {
 	public T getFilterSearch(String filter, String cadena)throws MalformedURLException, IOException;
 	public T getIDSearch(String id)throws MalformedURLException, IOException ;
 }
-//Lombok primero debo darle la ubicacion que poseo en el eclipse y despues instalo

@@ -26,10 +26,10 @@ public class ViewUtil {
     }
 
 
-   /*public static Route notFound = (Request request, Response response) -> {//Base de datos
-        response.status(HttpStatus.NOT_FOUND_404);
-        return render(request, new HashMap<>(), Path.Template.NOT_FOUND);
-    };*///Es de la clase Logger
+//   public static Route notFound = (Request request, Response response) -> {
+//        response.status(HttpStatus.NOT_FOUND_404);
+//        return render(request, new HashMap<>(), Path.Template.NOT_FOUND);
+//    }
 
     private static PebbleTemplateEngine strictPebbleEngine() {
     	PebbleEngine engine = new PebbleEngine.Builder().build();
