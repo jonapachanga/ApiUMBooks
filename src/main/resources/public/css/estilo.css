@@ -1,0 +1,105 @@
+.paneles {
+	display: inline-block;
+}
+.colorpanel1 {
+	background-color: #936016 !important; 
+	border-color: #936016 !important;
+}
+
+.bordespaneles1 {
+	border: 1px solid #936016 !important; 
+}
+
+.colorpanel2 {
+	background-color: #16a085 !important;
+	border-color: #16a085 !important;
+}
+
+.bordespaneles2 {
+	border: 1px solid #16a085 !important; 
+}
+
+.colorpanel3 {
+	background-color: #8e44ad !important;
+	border-color: #8e44ad !important;
+}
+
+.bordespaneles3 {
+	border: 1px solid #8e44ad !important; 
+}
+
+.colorpanel4 {
+	background-color: #e74c3c !important;
+	border-color: #e74c3c !important;
+}
+
+.bordespaneles4 {
+	border: 1px solid #e74c3c !important; 
+}
+
+.fila {
+	padding-left: 60px;
+	padding-right: 60px;
+}
+
+/*.masinformacion {
+	padding-left: 200px;
+}
+*/
+
+.cadapanel {
+	width: 150px;
+}
+
+.panel {
+	width: 100%;
+}
+
+.padreboton {
+	display: flex;
+	flex-flow: row;
+	justify-content: center;
+}
+
+.parrafo {
+	margin-top: 20px;
+	padding-top: 150px;
+}
+
+.cuadrotexto {
+	position: relative;
+	background-color: rgba(46, 204, 113,0.5);
+	padding: 60px;
+	margin-top: 40px;
+	font-size: 16px;
+	font-style: italic;
+	border-radius: 5px;
+	color: black !important;
+}
+
+.fondoboton {
+	background-color: #2c3e50 !important;
+	border-color: #2c3e50 !important;
+}
+
+#testimonials {
+	padding: 15px 0 !important;
+}
+
+#portfolio {
+	padding: 25px 0 !important;
+}
+
+/*=====================RECOMENDACIONES===================*/
+.recomendacion {
+	width: 300px !important;
+}
+
+.section-title {
+	margin: 30px 0 60px 0 !important;
+}
+
+.portfolio-item {
+	background-size: 85% 100% !important; 
+	overflow: hidden !important;
+}
