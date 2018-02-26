@@ -10,8 +10,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import ar.edu.um.umbooks.controller.*;
+import java.io.ObjectOutput;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+
+import ar.edu.um.umbooks.persistencia.jpa.JPAHelper;//
+import ar.edu.um.umbooks.persistencia.jpa.impl.DAOImpl;
+import ar.edu.um.umbooks.persistencia.jpa.impl.VolumenInfoDAOImpl;
+import ar.edu.um.umbooks.persistencia.dao.CRUDInterface;
 import ar.edu.um.umbooks.clasesapi.Items;
 import ar.edu.um.umbooks.clasesapi.JSON;
+import ar.edu.um.umbooks.clasesapi.VolumeInfo;
 import ar.edu.um.umbooks.servicios.SearchServices;
 import ar.edu.um.umbooks.singleton.ApiProperty;
 
@@ -20,26 +30,26 @@ public class App {
     public static void main( String[] args ) throws Exception  {
     	try {
     		
+    		CRUDInterface<VolumeInfo, Integer> service = new VolumenInfoDAOImpl();
+    		
     		SearchServices<JSON> volumen = new SearchServices<JSON>() {};
-    		SearchServices<JSON> filtro = new SearchServices<JSON>() {};
+    		//SearchServices<JSON> filtro = new SearchServices<JSON>() {};
     		SearchServices<Items> id = new SearchServices<Items>() {};
     		
     		String key = ApiProperty.getInstance().getPropiedades("key");
     		
     		
     		String idBook = volumen.getVolumenSearch("harry potter").getItems().get(0).getId();
-    		String resultFilter = filtro.getFilterSearch("paid-ebooks", "harry potter")
-    				.getItems()
-    				.get(0)
-    				.getVolumeInfo()
-    				.getTitle();
-    		String resultId = id.getIDSearch(idBook)
-    				.getVolumeInfo()
-    				.getTitle();
     		
     		System.out.println(idBook);
-    		System.out.println(resultFilter);
-    		System.out.println(resultId);
+    		VolumeInfo volumeInfo = id.getIDSearch(idBook)
+    				.getVolumeInfo();
+    		
+    		System.out.println(volumeInfo.getTitle());
+    		
+    		service.create(volumeInfo);
+    		
+    		
     		System.out.println(key);
     		 
 		} catch (Exception e) {
